@@ -11,6 +11,10 @@
 		<description>NFive Plugins SDK</description>
 		<copyright>Copyright NFive 2018</copyright>
 		<tags>nfive fivem</tags>
+		<dependencies>
+			<dependency id="SemanticVersioning" version="1.2.0" />
+			<dependency id="YamlDotNet" version="5.0.1" />
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="bin\Release\NFive.SDK.Plugins.dll" target="lib\net452\NFive.SDK.Plugins.dll" />
