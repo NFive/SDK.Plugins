@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>NFive.SDK.Plugins</id>
+		<version>$version$</version>
+		<authors>NFive</authors>
+		<owners>NFive</owners>
+		<licenseUrl>https://github.com/NFive/SDK.Plugins/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/NFive/SDK.Plugins</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>NFive Plugins SDK</description>
+		<copyright>Copyright NFive 2018</copyright>
+		<tags>nfive fivem</tags>
+	</metadata>
+	<files>
+		<file src="bin\Release\NFive.SDK.Plugins.dll" target="lib\net452\NFive.SDK.Plugins.dll" />
+	</files>
+</package>
