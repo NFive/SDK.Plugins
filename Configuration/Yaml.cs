@@ -16,7 +16,7 @@ namespace NFive.SDK.Plugins.Configuration
 		public static string Serialize(object obj)
 		{
 			return new SerializerBuilder()
-				.WithNamingConvention(new CamelCaseNamingConvention())
+				.WithNamingConvention(new UnderscoredNamingConvention())
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new VersionConverter())
 				.WithTypeConverter(new VersionRangeConverter())
@@ -33,7 +33,7 @@ namespace NFive.SDK.Plugins.Configuration
 		public static T Deserialize<T>(string yml)
 		{
 			return new DeserializerBuilder()
-				.WithNamingConvention(new CamelCaseNamingConvention())
+				.WithNamingConvention(new UnderscoredNamingConvention())
 				//.IgnoreUnmatchedProperties()
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new VersionConverter())
