@@ -54,5 +54,7 @@ namespace NFive.SDK.Plugins.Models
 		}
 
 		public static implicit operator Name(string value) => new Name(value);
+
+		public static implicit operator string(Name value) => value.ToString();
 	}
 }

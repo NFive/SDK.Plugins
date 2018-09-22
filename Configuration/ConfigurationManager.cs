@@ -14,6 +14,12 @@ namespace NFive.SDK.Plugins.Configuration
 	[PublicAPI]
 	public static class ConfigurationManager
 	{
+		public const string DefinitionFile = "nfive.yml";
+		public const string LockFile = "nfive.lock";
+		public const string ResourceFile = "__resource.lua";
+		public const string PluginPath = "plugins";
+		public const string ConfigurationPath = "config";
+
 		public static object Load(string path, Type type)
 		{
 			path = Path.Combine("config", path);
