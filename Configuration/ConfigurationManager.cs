@@ -26,7 +26,7 @@ namespace NFive.SDK.Plugins.Configuration
 
 			if (!File.Exists(path)) throw new FileNotFoundException("Unable to find configuration file", path);
 
-			Deserializer deserializer = new DeserializerBuilder()
+			var deserializer = new DeserializerBuilder()
 				.WithNamingConvention(new UnderscoredNamingConvention())
 				//.IgnoreUnmatchedProperties()
 				.Build();
