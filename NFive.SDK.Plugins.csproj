@@ -45,8 +45,8 @@
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.13, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\NFive.SDK.Core.0.1.0.13\lib\net452\NFive.SDK.Core.net.dll</HintPath>
+    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NFive.SDK.Core.0.1.0.14\lib\net452\NFive.SDK.Core.net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SemVer, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a89bb7dc6f7a145c, processorArchitecture=MSIL">
@@ -55,24 +55,19 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="YamlDotNet, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\YamlDotNet.5.2.0\lib\net45\YamlDotNet.dll</HintPath>
+      <HintPath>packages\YamlDotNet.5.2.1\lib\net45\YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Configuration\NameConverter.cs" />
+    <Compile Include="Configuration\PluginTypeInspector.cs" />
     <Compile Include="Configuration\VersionConverter.cs" />
     <Compile Include="Configuration\VersionRangeConverter.cs" />
     <Compile Include="Configuration\Yaml.cs" />
     <Compile Include="DefinitionGraph.cs" />
-    <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\Definition.cs" />
-    <Compile Include="Models\Name.cs" />
-    <Compile Include="Models\Repository.cs" />
-    <Compile Include="Models\Server.cs" />
-    <Compile Include="Models\Version.cs" />
-    <Compile Include="Models\VersionRange.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

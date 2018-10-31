@@ -2,12 +2,13 @@
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
+using Version = NFive.SDK.Core.Plugins.Version;
 
 namespace NFive.SDK.Plugins.Configuration
 {
 	/// <inheritdoc />
 	/// <summary>
-	/// Yaml converter for <see cref="T:NFive.PluginManager.Models.Plugin.Version" />.
+	/// Yaml converter for <see cref="T:NFive.SDK.Core.Plugins.Version" />.
 	/// </summary>
 	/// <seealso cref="T:YamlDotNet.Serialization.IYamlTypeConverter" />
 	public class VersionConverter : IYamlTypeConverter
@@ -18,7 +19,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// </summary>
 		public bool Accepts(Type type)
 		{
-			return type == typeof(Models.Version);
+			return type == typeof(Version);
 		}
 
 		/// <inheritdoc />
@@ -29,7 +30,17 @@ namespace NFive.SDK.Plugins.Configuration
 		{
 			var value = ((Scalar)parser.Current).Value;
 			parser.MoveNext();
-			return new Models.Version(value);
+
+			var version = new SemVer.Version(value);
+
+			return new Version
+			{
+				Major = version.Major,
+				Minor = version.Minor,
+				Patch = version.Patch,
+				PreRelease = version.PreRelease,
+				Build = version.Build
+			};
 		}
 
 		/// <inheritdoc />
@@ -38,7 +49,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// </summary>
 		public void WriteYaml(IEmitter emitter, object value, Type type)
 		{
-			emitter.Emit(new Scalar(((Models.Version)value).ToString()));
+			emitter.Emit(new Scalar(((Version)value).ToString()));
 		}
 	}
 }

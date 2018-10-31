@@ -1,5 +1,5 @@
 ﻿using System;
-using NFive.SDK.Plugins.Models;
+using NFive.SDK.Core.Plugins;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
@@ -8,7 +8,7 @@ namespace NFive.SDK.Plugins.Configuration
 {
 	/// <inheritdoc />
 	/// <summary>
-	/// Yaml converter for <see cref="T:NFive.PluginManager.Models.Plugin.VersionRange" />.
+	/// Yaml converter for <see cref="T:NFive.SDK.Core.Plugins.VersionRange" />.
 	/// </summary>
 	/// <seealso cref="T:YamlDotNet.Serialization.IYamlTypeConverter" />
 	public class VersionRangeConverter : IYamlTypeConverter
@@ -30,7 +30,13 @@ namespace NFive.SDK.Plugins.Configuration
 		{
 			var value = ((Scalar)parser.Current).Value;
 			parser.MoveNext();
-			return new VersionRange(value);
+
+			var range = new SemVer.Range(value);
+
+			return new VersionRange
+			{
+				Value = range.ToString()
+			};
 		}
 
 		/// <inheritdoc />

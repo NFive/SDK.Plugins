@@ -1,5 +1,5 @@
 ﻿using System;
-using NFive.SDK.Plugins.Models;
+using NFive.SDK.Core.Plugins;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
@@ -8,7 +8,7 @@ namespace NFive.SDK.Plugins.Configuration
 {
 	/// <inheritdoc />
 	/// <summary>
-	/// Yaml converter for <see cref="T:NFive.PluginManager.Models.Plugin.Name" />.
+	/// Yaml converter for <see cref="T:NFive.SDK.Core.Plugins.Name" />.
 	/// </summary>
 	/// <seealso cref="T:YamlDotNet.Serialization.IYamlTypeConverter" />
 	public class NameConverter : IYamlTypeConverter

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using JetBrains.Annotations;
 using NFive.SDK.Core.Controllers;
-using NFive.SDK.Plugins.Models;
+using NFive.SDK.Core.Plugins;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
-using YamlDotNet.Serialization.TypeInspectors;
 
 namespace NFive.SDK.Plugins.Configuration
 {
@@ -69,20 +66,5 @@ namespace NFive.SDK.Plugins.Configuration
 
 			File.WriteAllText(Path.Combine("config", pluginName.Vendor, pluginName.Project, $"{fileName}.yml"), yml);
 		}
-	}
-
-	public class PluginTypeInspector : TypeInspectorSkeleton
-	{
-		private readonly ITypeInspector inspector;
-
-		public PluginTypeInspector(ITypeInspector inspector)
-		{
-			this.inspector = inspector;
-		}
-
-		public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object container) => this.inspector
-			.GetProperties(type, container)
-			.Where(p => p.CanWrite)
-			.Where(p => p.Name != "file_name");
 	}
 }
