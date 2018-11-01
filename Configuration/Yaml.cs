@@ -17,6 +17,7 @@ namespace NFive.SDK.Plugins.Configuration
 		{
 			return new SerializerBuilder()
 				.WithNamingConvention(new UnderscoredNamingConvention())
+				.WithTypeInspector(i => new BasePluginTypeInspector(i))
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new VersionConverter())
 				.WithTypeConverter(new VersionRangeConverter())
@@ -34,6 +35,7 @@ namespace NFive.SDK.Plugins.Configuration
 		{
 			return new DeserializerBuilder()
 				.WithNamingConvention(new UnderscoredNamingConvention())
+				.WithTypeInspector(i => new BasePluginTypeInspector(i))
 				//.IgnoreUnmatchedProperties()
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new VersionConverter())
