@@ -8,9 +8,9 @@ namespace NFive.SDK.Plugins.Configuration
 {
 	/// <inheritdoc />
 	/// <summary>
-	/// Yaml converter for <see cref="T:NFive.SDK.Core.Plugins.Name" />.
+	/// Yaml converter for <see cref="Name" /> type.
 	/// </summary>
-	/// <seealso cref="T:YamlDotNet.Serialization.IYamlTypeConverter" />
+	/// <seealso cref="IYamlTypeConverter" />
 	public class NameConverter : IYamlTypeConverter
 	{
 		/// <inheritdoc />
@@ -24,7 +24,7 @@ namespace NFive.SDK.Plugins.Configuration
 
 		/// <inheritdoc />
 		/// <summary>
-		/// Reads an object's state from a YAML parser.
+		/// Reads an object's state from a Yaml parser.
 		/// </summary>
 		public object ReadYaml(IParser parser, Type type)
 		{
@@ -35,7 +35,7 @@ namespace NFive.SDK.Plugins.Configuration
 
 		/// <inheritdoc />
 		/// <summary>
-		/// Writes the specified object's state to a YAML emitter.
+		/// Writes the specified object's state to a Yaml emitter.
 		/// </summary>
 		public void WriteYaml(IEmitter emitter, object value, Type type)
 		{

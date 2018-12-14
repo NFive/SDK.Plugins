@@ -8,9 +8,9 @@ namespace NFive.SDK.Plugins.Configuration
 {
 	/// <inheritdoc />
 	/// <summary>
-	/// Yaml converter for <see cref="T:NFive.SDK.Core.Plugins.VersionRange" />.
+	/// Yaml converter for <see cref="VersionRange" />.
 	/// </summary>
-	/// <seealso cref="T:YamlDotNet.Serialization.IYamlTypeConverter" />
+	/// <seealso cref="IYamlTypeConverter" />
 	public class VersionRangeConverter : IYamlTypeConverter
 	{
 		/// <inheritdoc />
