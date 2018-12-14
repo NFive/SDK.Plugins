@@ -12,6 +12,7 @@
 		<copyright>Copyright NFive 2018</copyright>
 		<tags>nfive fivem</tags>
 		<dependencies>
+			<dependency id="NFive.SDK.Core" version="0.1.0.20" />
 			<dependency id="SemanticVersioning" version="1.2.0" />
 			<dependency id="YamlDotNet" version="5.3.0" />
 		</dependencies>
