@@ -31,6 +31,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <returns>Valid deserialized properties.</returns>
 		public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object container) => this.inspector
 			.GetProperties(type, container)
-			.Where(p => p.Name != "file_name"); // Exclude "FileName"
+			.Where(p => p.Name != "file_name") // Exclude "FileName"
+			.Where(p => p.Name != "full_name"); // Exclude "FullName"
 	}
 }
