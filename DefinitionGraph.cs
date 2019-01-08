@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using JetBrains.Annotations;
 using NFive.SDK.Plugins.Configuration;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace NFive.SDK.Plugins
 {

@@ -1,4 +1,4 @@
-﻿using JetBrains.Annotations;
+using JetBrains.Annotations;
 using NFive.SDK.Plugins.Configuration;
 using System;
 using System.Collections.Generic;

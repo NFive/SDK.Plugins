@@ -1,5 +1,5 @@
-﻿using System;
 using NFive.SDK.Core.Plugins;
+using System;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;

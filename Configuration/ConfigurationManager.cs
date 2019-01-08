@@ -1,4 +1,4 @@
-﻿using JetBrains.Annotations;
+using JetBrains.Annotations;
 using NFive.SDK.Core.Controllers;
 using NFive.SDK.Core.Plugins;
 using System;
