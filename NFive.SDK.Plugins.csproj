@@ -64,6 +64,7 @@
     <Compile Include="Configuration\NameConverter.cs" />
     <Compile Include="Configuration\BasePluginTypeInspector.cs" />
     <Compile Include="Configuration\PluginTypeInspector.cs" />
+    <Compile Include="Configuration\TimeSpanConverter.cs" />
     <Compile Include="Configuration\VersionConverter.cs" />
     <Compile Include="Configuration\VersionRangeConverter.cs" />
     <Compile Include="Configuration\Yaml.cs" />
