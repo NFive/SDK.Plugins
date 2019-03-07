@@ -33,12 +33,33 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <returns>Deserialized <see cref="TimeSpan"/> object.</returns>
 		public object ReadYaml(IParser parser, Type type)
 		{
-			var value = ((Scalar)parser.Current).Value;
+			var value = ((Scalar)parser.Current).Value.Trim();
 			parser.MoveNext();
 
 			if (TimeSpan.TryParseExact(value, @"dd\.hh\:mm\:ss", null, out var t)) return t;
 			if (TimeSpan.TryParseExact(value, @"hh\:mm\:ss", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"mm\:ss", null, out t)) return t;
+
+			if (MatchSuffix(value, "d", out var d)) return TimeSpan.FromDays(d);
+			if (MatchSuffix(value, "day", out d)) return TimeSpan.FromDays(d);
+			if (MatchSuffix(value, "days", out d)) return TimeSpan.FromDays(d);
+			if (MatchSuffix(value, "h", out d)) return TimeSpan.FromHours(d);
+			if (MatchSuffix(value, "hour", out d)) return TimeSpan.FromHours(d);
+			if (MatchSuffix(value, "hours", out d)) return TimeSpan.FromHours(d);
+			if (MatchSuffix(value, "m", out d)) return TimeSpan.FromMinutes(d);
+			if (MatchSuffix(value, "min", out d)) return TimeSpan.FromMinutes(d);
+			if (MatchSuffix(value, "mins", out d)) return TimeSpan.FromMinutes(d);
+			if (MatchSuffix(value, "minute", out d)) return TimeSpan.FromMinutes(d);
+			if (MatchSuffix(value, "minutes", out d)) return TimeSpan.FromMinutes(d);
+			if (MatchSuffix(value, "s", out d)) return TimeSpan.FromSeconds(d);
+			if (MatchSuffix(value, "sec", out d)) return TimeSpan.FromSeconds(d);
+			if (MatchSuffix(value, "secs", out d)) return TimeSpan.FromSeconds(d);
+			if (MatchSuffix(value, "second", out d)) return TimeSpan.FromSeconds(d);
+			if (MatchSuffix(value, "seconds", out d)) return TimeSpan.FromSeconds(d);
+			if (MatchSuffix(value, "ms", out d)) return TimeSpan.FromMilliseconds(d);
+			if (MatchSuffix(value, "millisecond", out d)) return TimeSpan.FromMilliseconds(d);
+			if (MatchSuffix(value, "milliseconds", out d)) return TimeSpan.FromMilliseconds(d);
+
 			return TimeSpan.FromSeconds(double.Parse(value, NumberStyles.Integer));
 		}
 
@@ -46,12 +67,17 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Writes the specified object's state to a Yaml emitter.
 		/// </summary>
-		/// <param name="emitter"></param>
-		/// <param name="value"></param>
-		/// <param name="type"></param>
 		public void WriteYaml(IEmitter emitter, object value, Type type)
 		{
 			emitter.Emit(new Scalar(((TimeSpan)value).ToString()));
+		}
+
+		private bool MatchSuffix(string value, string suffix, out double result)
+		{
+			if (value.EndsWith(suffix) && double.TryParse(value.Substring(0, value.Length - suffix.Length).Trim(), out result)) return true;
+
+			result = 0;
+			return false;
 		}
 	}
 }
