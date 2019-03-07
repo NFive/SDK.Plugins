@@ -37,8 +37,18 @@ namespace NFive.SDK.Plugins.Configuration
 			parser.MoveNext();
 
 			if (TimeSpan.TryParseExact(value, @"dd\.hh\:mm\:ss", null, out var t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.hh\:mm\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:mm\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:m\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:m\:s", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"hh\:mm\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:mm\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:m\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:m\:s", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"m\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"m\:s", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"mm\:ss", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"mm\:s", null, out t)) return t;
 
 			if (MatchSuffix(value, "d", out var d)) return TimeSpan.FromDays(d);
 			if (MatchSuffix(value, "day", out d)) return TimeSpan.FromDays(d);
