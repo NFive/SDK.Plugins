@@ -52,9 +52,6 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Writes the specified object's state to a Yaml emitter.
 		/// </summary>
-		/// <param name="emitter"></param>
-		/// <param name="value"></param>
-		/// <param name="type"></param>
 		public void WriteYaml(IEmitter emitter, object value, Type type)
 		{
 			emitter.Emit(new Scalar(((Version)value).ToString()));
