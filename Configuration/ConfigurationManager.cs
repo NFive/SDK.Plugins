@@ -45,12 +45,11 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <param name="path">The configuration file to deserialize.</param>
 		/// <param name="type">The type to deserialize as.</param>
 		/// <returns>The deserialized object.</returns>
-		/// <exception cref="FileNotFoundException">Unable to find configuration file.</exception>
 		public static object Load(string path, Type type)
 		{
 			path = Path.Combine(ConfigurationPath, path);
 
-			if (!File.Exists(path)) throw new FileNotFoundException("Unable to find configuration file.", path);
+			if (!File.Exists(path)) InitializeType(path, type);
 
 			var deserializer = new DeserializerBuilder()
 				.WithNamingConvention(new UnderscoredNamingConvention())
@@ -95,20 +94,33 @@ namespace NFive.SDK.Plugins.Configuration
 				// Create configuration directory if necessary
 				Directory.CreateDirectory(Path.Combine(ConfigurationPath, plugin.Vendor, plugin.Project));
 
-				// Serialize configuration
-				var yml = new SerializerBuilder()
-					.WithNamingConvention(new UnderscoredNamingConvention())
-					.EmitDefaults()
-					.WithTypeInspector(i => new PluginTypeInspector(i))
-					.Build()
-					.Serialize(configuration);
-
-				// Write Yaml to file
-				File.WriteAllText(Path.Combine(ConfigurationPath, plugin.Vendor, plugin.Project, $"{configuration.FileName}.yml"), yml);
+				InitializeType(Path.Combine(ConfigurationPath, plugin.Vendor, plugin.Project, $"{configuration.FileName}.yml"), type);
 			}
 
 			// Load configuration
 			return Load(plugin, configuration.FileName, type);
+		}
+
+		/// <summary>
+		/// Generates and saves an initial configuration for the specified type.
+		/// </summary>
+		/// <param name="file">The configuration file to deserialize.</param>
+		/// <param name="type">The type of the configuration object.</param>
+		public static void InitializeType(string file, Type type)
+		{
+			// Create new instance of type
+			var configuration = (IControllerConfiguration)Activator.CreateInstance(type);
+
+			// Serialize configuration
+			var yml = new SerializerBuilder()
+				.WithNamingConvention(new UnderscoredNamingConvention())
+				.EmitDefaults()
+				.WithTypeInspector(i => new PluginTypeInspector(i))
+				.Build()
+				.Serialize(configuration);
+
+			// Write Yaml to file
+			File.WriteAllText(file, yml);
 		}
 	}
 }
