@@ -3,8 +3,6 @@ using NFive.SDK.Core.Controllers;
 using NFive.SDK.Core.Plugins;
 using System;
 using System.IO;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace NFive.SDK.Plugins.Configuration
 {
@@ -51,12 +49,7 @@ namespace NFive.SDK.Plugins.Configuration
 
 			if (!File.Exists(path)) InitializeType(path, type);
 
-			var deserializer = new DeserializerBuilder()
-				.WithNamingConvention(new UnderscoredNamingConvention())
-				//.IgnoreUnmatchedProperties()
-				.Build();
-
-			return deserializer.Deserialize(File.ReadAllText(path), type);
+			return Yaml.Deserialize(File.ReadAllText(path), type);
 		}
 
 		/// <summary>
@@ -111,16 +104,8 @@ namespace NFive.SDK.Plugins.Configuration
 			// Create new instance of type
 			var configuration = (IControllerConfiguration)Activator.CreateInstance(type);
 
-			// Serialize configuration
-			var yml = new SerializerBuilder()
-				.WithNamingConvention(new UnderscoredNamingConvention())
-				.EmitDefaults()
-				.WithTypeInspector(i => new PluginTypeInspector(i))
-				.Build()
-				.Serialize(configuration);
-
 			// Write Yaml to file
-			File.WriteAllText(file, yml);
+			File.WriteAllText(file, Yaml.Serialize(configuration));
 		}
 	}
 }
