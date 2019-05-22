@@ -36,7 +36,21 @@ namespace NFive.SDK.Plugins.Configuration
 			var value = ((Scalar)parser.Current).Value.Trim();
 			parser.MoveNext();
 
-			if (TimeSpan.TryParseExact(value, @"dd\.hh\:mm\:ss", null, out var t)) return t;
+			if (TimeSpan.TryParseExact(value, @"dd\.hh\:mm\:ss\.FFFFFFF", null, out var t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.hh\:mm\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:mm\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:m\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"d\.h\:m\:s\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"hh\:mm\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:mm\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:m\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"h\:m\:s\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"m\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"m\:s\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"mm\:ss\.FFFFFFF", null, out t)) return t;
+			if (TimeSpan.TryParseExact(value, @"mm\:s\.FFFFFFF", null, out t)) return t;
+
+			if (TimeSpan.TryParseExact(value, @"dd\.hh\:mm\:ss", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"d\.hh\:mm\:ss", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"d\.h\:mm\:ss", null, out t)) return t;
 			if (TimeSpan.TryParseExact(value, @"d\.h\:m\:ss", null, out t)) return t;
