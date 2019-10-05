@@ -24,6 +24,7 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new VersionConverter())
 				.WithTypeConverter(new VersionRangeConverter())
 				.WithTypeConverter(new IPAddressConverter())
+				.WithTypeConverter(new SteamIdConverter())
 				//.EmitDefaults()
 				.Build()
 				.Serialize(obj);
