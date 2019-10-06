@@ -25,7 +25,7 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new VersionRangeConverter())
 				.WithTypeConverter(new IPAddressConverter())
 				.WithTypeConverter(new SteamIdConverter())
-				.WithTypeConverter(new TimeSpanConverter())
+				.WithTypeConverter(new TimeZoneInfoConverter())
 				.WithTypeConverter(new CultureInfoConverter())
 				//.EmitDefaults()
 				.Build()
