@@ -39,7 +39,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// </summary>
 		public void WriteYaml(IEmitter emitter, object value, Type type)
 		{
-			emitter.Emit(new Scalar(((TimeZoneInfo)value).ToString()));
+			emitter.Emit(new Scalar(((TimeZoneInfo)value).Id));
 		}
 	}
 }
