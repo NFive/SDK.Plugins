@@ -64,6 +64,10 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new TimeSpanConverter())
 				.WithTypeConverter(new VersionConverter())
 				.WithTypeConverter(new VersionRangeConverter())
+				.WithTypeConverter(new IPAddressConverter())
+				.WithTypeConverter(new SteamIdConverter())
+				.WithTypeConverter(new TimeZoneInfoConverter())
+				.WithTypeConverter(new CultureInfoConverter())
 				.Build();
 		}
 	}
