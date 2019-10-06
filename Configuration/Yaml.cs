@@ -23,6 +23,10 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new TimeSpanConverter())
 				.WithTypeConverter(new VersionConverter())
 				.WithTypeConverter(new VersionRangeConverter())
+				.WithTypeConverter(new IPAddressConverter())
+				.WithTypeConverter(new SteamIdConverter())
+				.WithTypeConverter(new TimeSpanConverter())
+				.WithTypeConverter(new CultureInfoConverter())
 				//.EmitDefaults()
 				.Build()
 				.Serialize(obj);

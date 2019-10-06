@@ -61,16 +61,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Configuration\CultureInfoConverter.cs" />
+    <Compile Include="Configuration\IPAddressConverter.cs" />
     <Compile Include="Configuration\NameConverter.cs" />
     <Compile Include="Configuration\BasePluginTypeInspector.cs" />
     <Compile Include="Configuration\PluginTypeInspector.cs" />
+    <Compile Include="Configuration\SteamIdConverter.cs" />
     <Compile Include="Configuration\TimeSpanConverter.cs" />
+    <Compile Include="Configuration\TimeZoneInfoConverter.cs" />
     <Compile Include="Configuration\VersionConverter.cs" />
     <Compile Include="Configuration\VersionRangeConverter.cs" />
     <Compile Include="Configuration\Yaml.cs" />
     <Compile Include="DefinitionGraph.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SteamId.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
