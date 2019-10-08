@@ -1,8 +1,8 @@
-using JetBrains.Annotations;
-using NFive.SDK.Plugins.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
+using NFive.SDK.Plugins.Configuration;
 
 namespace NFive.SDK.Plugins
 {
@@ -22,10 +22,10 @@ namespace NFive.SDK.Plugins
 		public List<Plugin> DependencyNodes { get; set; }
 
 		/// <summary>
-		/// Loads a <see cref="Plugin"/> from the specified definition file.
+		/// Loads a <see cref="Plugin" /> from the specified definition file.
 		/// </summary>
 		/// <param name="path">The path to the plugin definition file.</param>
-		/// <returns>The loaded <see cref="Plugin"/>.</returns>
+		/// <returns>The loaded <see cref="Plugin" />.</returns>
 		/// <exception cref="ArgumentNullException">path - A valid file path must be specified.</exception>
 		/// <exception cref="FileNotFoundException">Unable to find the plugin definition file.</exception>
 		public static Plugin Load(string path)

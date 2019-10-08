@@ -17,10 +17,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Gets a value indicating whether the current converter supports converting the specified type.
 		/// </summary>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(IPAddress) || type.BaseType == typeof(IPAddress);
-		}
+		public bool Accepts(Type type) => type == typeof(IPAddress) || type.BaseType == typeof(IPAddress);
 
 		/// <inheritdoc />
 		/// <summary>

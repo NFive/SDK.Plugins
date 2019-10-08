@@ -16,10 +16,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Gets a value indicating whether the current converter supports converting the specified type.
 		/// </summary>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(TimeZoneInfo);
-		}
+		public bool Accepts(Type type) => type == typeof(TimeZoneInfo);
 
 		/// <inheritdoc />
 		/// <summary>

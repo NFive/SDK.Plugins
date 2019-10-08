@@ -19,18 +19,15 @@ namespace NFive.SDK.Plugins.Configuration
 		/// </summary>
 		/// <param name="type">The type to check.</param>
 		/// <returns>
-		///   <c>true</c> if the specified <see cref="Type" /> can be converted; otherwise, <c>false</c>.
+		/// <c>true</c> if the specified <see cref="Type" /> can be converted; otherwise, <c>false</c>.
 		/// </returns>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(TimeSpan);
-		}
+		public bool Accepts(Type type) => type == typeof(TimeSpan);
 
 		/// <inheritdoc />
 		/// <summary>
 		/// Reads an object's state from a Yaml parser.
 		/// </summary>
-		/// <returns>Deserialized <see cref="TimeSpan"/> object.</returns>
+		/// <returns>Deserialized <see cref="TimeSpan" /> object.</returns>
 		public object ReadYaml(IParser parser, Type type)
 		{
 			var value = ((Scalar)parser.Current).Value.Trim();
@@ -96,7 +93,7 @@ namespace NFive.SDK.Plugins.Configuration
 			emitter.Emit(new Scalar(((TimeSpan)value).ToString()));
 		}
 
-		private bool MatchSuffix(string value, string suffix, out double result)
+		private static bool MatchSuffix(string value, string suffix, out double result)
 		{
 			if (value.EndsWith(suffix) && double.TryParse(value.Substring(0, value.Length - suffix.Length).Trim(), out result)) return true;
 

@@ -15,7 +15,7 @@ namespace NFive.SDK.Plugins.Configuration
 		private readonly ITypeInspector inspector;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="BasePluginTypeInspector"/> class.
+		/// Initializes a new instance of the <see cref="BasePluginTypeInspector" /> class.
 		/// </summary>
 		/// <param name="inspector">The type inspector.</param>
 		public BasePluginTypeInspector(ITypeInspector inspector)
@@ -29,9 +29,10 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <param name="type">The type to inspect.</param>
 		/// <param name="container">The container to extract properties from.</param>
 		/// <returns>Valid deserialized properties.</returns>
-		public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object container) => this.inspector
-			.GetProperties(type, container)
-			.Where(p => p.Name != "file_name") // Exclude "FileName"
-			.Where(p => p.Name != "full_name"); // Exclude "FullName"
+		public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object container) =>
+			this.inspector
+				.GetProperties(type, container)
+				.Where(p => p.Name != "file_name") // Exclude "FileName"
+				.Where(p => p.Name != "full_name"); // Exclude "FullName"
 	}
 }

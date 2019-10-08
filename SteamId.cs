@@ -10,10 +10,12 @@ namespace NFive.SDK.Plugins
 		/// SteamID2 Regex
 		/// </summary>
 		private const string Steam2Regex = "^STEAM_0:[0-1]:([0-9]{1,10})$";
+
 		/// <summary>
 		/// SteamID32 Regex
 		/// </summary>
 		private const string Steam32Regex = "^U:1:([0-9]{1,10})$";
+
 		/// <summary>
 		/// SteamID64 Regex
 		/// </summary>
@@ -53,6 +55,7 @@ namespace NFive.SDK.Plugins
 			{
 				return 0;
 			}
+
 			return steam32 + 76561197960265728L;
 		}
 
@@ -67,6 +70,7 @@ namespace NFive.SDK.Plugins
 			{
 				return 0;
 			}
+
 			return 76561197960265728L + Convert.ToInt64(accountId.Substring(10)) * 2L + Convert.ToInt64(accountId.Substring(8, 1));
 		}
 

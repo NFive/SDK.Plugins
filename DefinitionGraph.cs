@@ -1,8 +1,8 @@
-using JetBrains.Annotations;
-using NFive.SDK.Plugins.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
+using NFive.SDK.Plugins.Configuration;
 
 namespace NFive.SDK.Plugins
 {
@@ -21,10 +21,10 @@ namespace NFive.SDK.Plugins
 		public List<Plugin> Plugins { get; set; }
 
 		/// <summary>
-		/// Deserialized the specified lock file into a <see cref="DefinitionGraph"/>.
+		/// Deserialized the specified lock file into a <see cref="DefinitionGraph" />.
 		/// </summary>
 		/// <param name="path">The path to the lock file.</param>
-		/// <returns>The deserialized <see cref="DefinitionGraph"/>.</returns>
+		/// <returns>The deserialized <see cref="DefinitionGraph" />.</returns>
 		/// <exception cref="ArgumentNullException">A valid file path must be specified.</exception>
 		/// <exception cref="FileNotFoundException">Unable to find the plugin lock file.</exception>
 		public static DefinitionGraph Load(string path = ConfigurationManager.LockFile)

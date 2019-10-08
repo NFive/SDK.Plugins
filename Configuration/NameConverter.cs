@@ -1,5 +1,5 @@
-using NFive.SDK.Core.Plugins;
 using System;
+using NFive.SDK.Core.Plugins;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
@@ -17,10 +17,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Gets a value indicating whether the current converter supports converting the specified type.
 		/// </summary>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(Name);
-		}
+		public bool Accepts(Type type) => type == typeof(Name);
 
 		/// <inheritdoc />
 		/// <summary>

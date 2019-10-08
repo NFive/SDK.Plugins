@@ -19,18 +19,15 @@ namespace NFive.SDK.Plugins.Configuration
 		/// </summary>
 		/// <param name="type">The type to check.</param>
 		/// <returns>
-		///   <c>true</c> if the specified <see cref="Type" /> can be converted; otherwise, <c>false</c>.
+		/// <c>true</c> if the specified <see cref="Type" /> can be converted; otherwise, <c>false</c>.
 		/// </returns>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(Version);
-		}
+		public bool Accepts(Type type) => type == typeof(Version);
 
 		/// <inheritdoc />
 		/// <summary>
 		/// Reads an object's state from a Yaml parser.
 		/// </summary>
-		/// <returns>Deserialized <see cref="Version"/> object.</returns>
+		/// <returns>Deserialized <see cref="Version" /> object.</returns>
 		public object ReadYaml(IParser parser, Type type)
 		{
 			var value = ((Scalar)parser.Current).Value;

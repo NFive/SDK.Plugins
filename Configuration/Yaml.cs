@@ -38,10 +38,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <typeparam name="T">The type to deserialize as.</typeparam>
 		/// <param name="yml">The Yaml string.</param>
 		/// <returns>The deserialized object.</returns>
-		public static T Deserialize<T>(string yml)
-		{
-			return Deserializer().Deserialize<T>(yml);
-		}
+		public static T Deserialize<T>(string yml) => Deserializer().Deserialize<T>(yml);
 
 		/// <summary>
 		/// Deserializes the specified Yaml.
@@ -49,10 +46,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <param name="yml">The Yaml string.</param>
 		/// <param name="type">The type to deserialize as.</param>
 		/// <returns>The deserialized object.</returns>
-		public static object Deserialize(string yml, Type type)
-		{
-			return Deserializer().Deserialize(yml, type);
-		}
+		public static object Deserialize(string yml, Type type) => Deserializer().Deserialize(yml, type);
 
 		private static IDeserializer Deserializer()
 		{

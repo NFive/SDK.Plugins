@@ -1,8 +1,8 @@
+using System;
+using System.IO;
 using JetBrains.Annotations;
 using NFive.SDK.Core.Controllers;
 using NFive.SDK.Core.Plugins;
-using System;
-using System.IO;
 
 namespace NFive.SDK.Plugins.Configuration
 {

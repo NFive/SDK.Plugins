@@ -1,5 +1,6 @@
-using NFive.SDK.Core.Plugins;
 using System;
+using NFive.SDK.Core.Plugins;
+using SemVer;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
@@ -17,10 +18,7 @@ namespace NFive.SDK.Plugins.Configuration
 		/// <summary>
 		/// Gets a value indicating whether the current converter supports converting the specified type.
 		/// </summary>
-		public bool Accepts(Type type)
-		{
-			return type == typeof(VersionRange) || type.BaseType == typeof(VersionRange);
-		}
+		public bool Accepts(Type type) => type == typeof(VersionRange) || type.BaseType == typeof(VersionRange);
 
 		/// <inheritdoc />
 		/// <summary>
@@ -31,7 +29,7 @@ namespace NFive.SDK.Plugins.Configuration
 			var value = ((Scalar)parser.Current).Value;
 			parser.MoveNext();
 
-			var range = new SemVer.Range(value);
+			var range = new Range(value);
 
 			return new VersionRange
 			{
