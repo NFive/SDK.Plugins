@@ -17,7 +17,7 @@ namespace NFive.SDK.Plugins.Configuration
 		public static string Serialize(object obj)
 		{
 			return new SerializerBuilder()
-				.WithNamingConvention(new UnderscoredNamingConvention())
+				.WithNamingConvention(UnderscoredNamingConvention.Instance)
 				.WithTypeInspector(i => new BasePluginTypeInspector(i))
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new TimeSpanConverter())
@@ -51,7 +51,7 @@ namespace NFive.SDK.Plugins.Configuration
 		private static IDeserializer Deserializer()
 		{
 			return new DeserializerBuilder()
-				.WithNamingConvention(new UnderscoredNamingConvention())
+				.WithNamingConvention(UnderscoredNamingConvention.Instance)
 				.WithTypeInspector(i => new BasePluginTypeInspector(i))
 				//.IgnoreUnmatchedProperties()
 				.WithTypeConverter(new NameConverter())
