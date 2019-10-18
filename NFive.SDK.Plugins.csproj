@@ -46,12 +46,12 @@
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.44, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\NFive.SDK.Core.0.1.0.44\lib\net452\NFive.SDK.Core.net.dll</HintPath>
+    <Reference Include="NFive.SDK.Core.net, Version=0.1.0.50, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NFive.SDK.Core.0.1.0.50\lib\net452\NFive.SDK.Core.net.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SemVer, Version=1.2.1.0, Culture=neutral, PublicKeyToken=a89bb7dc6f7a145c, processorArchitecture=MSIL">
-      <HintPath>packages\SemanticVersioning.1.2.1\lib\net45\SemVer.dll</HintPath>
+    <Reference Include="SemVer, Version=1.2.2.0, Culture=neutral, PublicKeyToken=a89bb7dc6f7a145c, processorArchitecture=MSIL">
+      <HintPath>packages\SemanticVersioning.1.2.2\lib\net45\SemVer.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
