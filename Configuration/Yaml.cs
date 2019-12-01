@@ -27,7 +27,7 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new SteamIdConverter())
 				.WithTypeConverter(new TimeZoneInfoConverter())
 				.WithTypeConverter(new CultureInfoConverter())
-				//.EmitDefaults()
+				.ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
 				.Build()
 				.Serialize(obj);
 		}
@@ -53,7 +53,6 @@ namespace NFive.SDK.Plugins.Configuration
 			return new DeserializerBuilder()
 				.WithNamingConvention(UnderscoredNamingConvention.Instance)
 				.WithTypeInspector(i => new BasePluginTypeInspector(i))
-				//.IgnoreUnmatchedProperties()
 				.WithTypeConverter(new NameConverter())
 				.WithTypeConverter(new TimeSpanConverter())
 				.WithTypeConverter(new VersionConverter())
@@ -62,6 +61,7 @@ namespace NFive.SDK.Plugins.Configuration
 				.WithTypeConverter(new SteamIdConverter())
 				.WithTypeConverter(new TimeZoneInfoConverter())
 				.WithTypeConverter(new CultureInfoConverter())
+				//.IgnoreUnmatchedProperties()
 				.Build();
 		}
 	}
