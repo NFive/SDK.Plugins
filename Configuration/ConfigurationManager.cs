@@ -23,9 +23,9 @@ namespace NFive.SDK.Plugins.Configuration
 		public const string LockFile = "nfive.lock";
 
 		/// <summary>
-		/// The default name of the FiveM resource file
+		/// The default name of the FX resource file
 		/// </summary>
-		public const string ResourceFile = "__resource.lua";
+		public const string ResourceFile = "fxmanifest.lua";
 
 		/// <summary>
 		/// The default path to the NFive plugins directory
