@@ -2,6 +2,7 @@ using System;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;
+using TimeZoneConverter;
 
 namespace NFive.SDK.Plugins.Configuration
 {
@@ -27,7 +28,7 @@ namespace NFive.SDK.Plugins.Configuration
 			var value = ((Scalar)parser.Current).Value;
 			parser.MoveNext();
 
-			return TimeZoneInfo.FindSystemTimeZoneById(value);
+			return TZConvert.GetTimeZoneInfo(value);
 		}
 
 		/// <inheritdoc />
