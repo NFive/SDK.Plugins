@@ -1,6 +1,6 @@
 using System;
 using NFive.SDK.Core.Plugins;
-using SemVer;
+using SemanticVersioning;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization;

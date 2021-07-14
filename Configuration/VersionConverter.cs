@@ -33,7 +33,7 @@ namespace NFive.SDK.Plugins.Configuration
 			var value = ((Scalar)parser.Current).Value;
 			parser.MoveNext();
 
-			var version = new SemVer.Version(value);
+			var version = new SemanticVersioning.Version(value);
 
 			return new Version
 			{
