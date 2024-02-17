@@ -1,0 +1,59 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  calculate-version:
+    name: Calculate Version
+    runs-on: ubuntu-latest
+    outputs:
+      semVer: ${{ steps.gitversion.outputs.semVer }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.10.2
+        with:
+          versionSpec: "5.x"
+
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.10.2
+        with:
+          useConfigFile: true
+          configFilePath: ./.github/version.yml
+
+  build:
+    runs-on: windows-latest
+    needs: calculate-version
+    env:
+      SEMVER: ${{ needs.calculate-version.outputs.semVer }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore dependencies
+        run: nuget restore NFive.SDK.Plugins.sln
+
+      - name: Build the solution
+        run: dotnet build -c Release -o Build /p:Version=${{env.SEMVER}} NFive.SDK.Plugins.sln
+
+      - name: Attach Zip as build artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: NFive.SDK.Plugins-${{ env.SEMVER }}
+          path: Build
